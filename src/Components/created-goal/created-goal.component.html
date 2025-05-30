@@ -1,0 +1,82 @@
+<div
+  *ngIf="goal"
+  class="fixed inset-0 z-50 flex items-center justify-center mask-bg bg-opacity-50 overflow-hidden"
+>
+  <div
+    class="animate-fade-in-scale h-fit w-100 rounded-xl bg-white p-6 flex flex-col items-center justify-start gap-6 max-md:gap-2 max-md:w-75 max-md:h-auto"
+  >
+    <dotlottie-player
+      src="https://lottie.host/5dc1b8b5-8850-4709-9485-e6fccd5ef2b4/Xzu5ePxuZk.lottie"
+      background="transparent"
+      speed="1"
+      class="w-30 h-30"
+      autoplay
+    ></dotlottie-player>
+    
+    <p class="text-2xl font-medium text-zinc-900 max-md:text-xl">
+      {{ 'CREATED_GOAL.CONGRATULATIONS' | translate }}
+    </p>
+
+    <div class="text-center flex flex-col gap-2">
+      <p class="font-medium text-lg text-zinc-900 max-md:text-base">
+        {{ 'CREATED_GOAL.REFERENCE_ID' | translate }}<span>{{data}}</span>
+      </p>
+      <p class="text-zinc-400 text-sm max-md:text-xs">
+        {{ 'CREATED_GOAL.REFERENCE_ID_GENERATED' | translate }}<br />
+        {{ 'CREATED_GOAL.COPY_AND_SAVE' | translate }}<br />
+        {{ 'CREATED_GOAL.EMAIL_PROMPT' | translate }}
+      </p>
+    </div>
+
+    <div class="w-full">
+      <input
+        type="email"
+        [(ngModel)]="userEmail"
+        (input)="validateEmail()"
+        name="email"
+        class="border-zinc-100 outline-none border pl-3 pr-3 pt-2 pb-2 w-full rounded-xl placeholder:text-zinc-800 text-base max-md:text-xs"
+        [placeholder]="'CREATED_GOAL.EMAIL_PLACEHOLDER' | translate"
+        required
+        [ngClass]="{
+          'border-red-600': emailErrorMessage,
+          'border-zinc-100': !emailErrorMessage
+        }"
+      />
+
+      <div *ngIf="emailErrorMessage" class="text-red-500 text-sm mt-2">
+        {{ emailErrorMessage }}
+      </div>
+    </div>
+
+    <div *ngIf="sentAlert" class="flex justify-center items-center">
+      <p class="text-green-500 text-sm text-center">
+        {{ 'CREATED_GOAL.EMAIL_SENT' | translate }}
+      </p>
+    </div>
+    <div *ngIf="failAlert" class="flex justify-center items-center">
+      <p class="text-red-600 text-center text-sm">
+        {{ 'CREATED_GOAL.EMAIL_FAILED' | translate }}
+      </p>
+    </div>
+    <div class="action-buttons w-full flex gap-2">
+      <button
+        (click)="close()"
+        class="text-white p-2 w-full rounded-lg bg-red-600 max-md:text-xs"
+      >
+        {{ 'CREATED_GOAL.NO_THANKS' | translate }}
+      </button>
+      <button
+        (click)="sendEmail()"
+        [disabled]="emailErrorMessage || !userEmail || isSending"
+        [ngClass]="{
+          'bg-primary': !emailErrorMessage && userEmail && !isSending,
+          'bg-zinc-400 cursor-not-allowed opacity-60':
+            emailErrorMessage || !userEmail || isSending
+        }"
+        class="text-white p-2 w-full rounded-lg max-md:text-xs"
+      >
+        {{ isSending ? ('CREATED_GOAL.SENDING' | translate) : ('CREATED_GOAL.CONTINUE' | translate) }}
+      </button>
+    </div>
+  </div>
+</div>

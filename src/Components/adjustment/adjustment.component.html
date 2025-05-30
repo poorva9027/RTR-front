@@ -1,0 +1,25 @@
+<div *ngIf="onTrack" class="animate-fade-in-scale flex flex-col bg-green-100 w-full rounded-2xl p-4 gap-2">
+    <div class="flex gap-2 items-center">
+      <img [src]="OnTrackSvg" alt="logo" />
+      <p class="font-semibold text-base text-green-600 max-md:text-sm">
+        {{ 'ADJUSTMENT.MONTHLY_ADJUSTMENT' | translate }}
+      </p>
+    </div>
+    <p class="text-xl text-green-600 font-bold max-md:text-base">
+      {{ 'ADJUSTMENT.ON_TRACK' | translate }}
+    </p>
+  </div>
+  
+  <div *ngIf="!onTrack" class="animate-fade-in-scale flex flex-col bg-red-100 w-full rounded-2xl p-4 gap-2"
+       [attr.title]="'ADJUSTMENT.MONTHLY_ADJUSTMENT_NEEDED' | translate">
+    <div class="flex gap-2 items-center">
+      <img [src]="OffTrckSvg" alt="logo" />
+      <p class="font-semibold text-base text-red-600 max-md:text-sm">
+        {{ 'ADJUSTMENT.MONTHLY_ADJUSTMENT' | translate }}
+      </p>
+    </div>
+    <p class="text-xl text-red-600 font-bold max-md:text-base">
+      {{ 'ADJUSTMENT.OFF_TRACK' | translate:{amount: recommendedMonthly | number:'1.0-0'} }}
+    </p>
+  </div>
+  

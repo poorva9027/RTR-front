@@ -1,0 +1,65 @@
+{
+  "FORM": {
+    "CURRENT_AGE": "Quel est votre âge actuel",
+    "CURRENT_SAVE": "Quel est votre épargne actuelle",
+    "MONTHL_SAVE": "Quelle est votre contribution mensuelle",
+    "TARGET_AGE": "Quel est votre âge cible pour la retraite",
+    "TARGET_SAVE": "Quel est votre objectif d'épargne pour la retraite"
+  },
+  "VALIDATION": {
+    "REQUIRED": "Ce champ est requis",
+    "AGE_MIN": "L'âge ne doit pas être inférieur à 18 ans",
+    "AGE_MAX": "L'âge ne doit pas être supérieur à 60 ans",
+    "SAVINGS_MIN": "L'épargne ne doit pas être inférieure à 0",
+    "SAVINGS_MAX": "L'épargne ne doit pas dépasser 100 000 $",
+    "MONTHLY_MIN": "La contribution mensuelle ne doit pas être inférieure à 0",
+    "MONTHLY_MAX": "La contribution mensuelle ne doit pas dépasser 10 000 $",
+    "TARGET_MIN": "L'objectif d'épargne ne doit pas être inférieur à 0",
+    "TARGET_MAX": "L'objectif d'épargne ne doit pas dépasser 1 000 000 $",
+    "TARGET_AGE_GREATER": "L'âge cible doit être supérieur à l'âge actuel",
+    "SUBMIT_COOLDOWN": "Veuillez attendre un moment avant de soumettre à nouveau."
+  },
+ 
+  "SIGN_OUT": "Se déconnecter",
+  "MONTHLY_CONTRIB": {
+    "CURRENT_SAVINGS": "Votre épargne mensuelle actuelle",
+    "CURRENT_SAVINGS_TOOLTIP": "Le montant total de votre épargne mensuelle actuelle",
+    "RECOMMENDED_SAVINGS": "Épargne mensuelle recommandée",
+    "RECOMMENDED_SAVINGS_TOOLTIP": "Montant total recommandé à contribuer chaque mois",
+    "TOTAL_SAVINGS": "Épargne totale pour la retraite",
+    "TOTAL_SAVINGS_TOOLTIP": "Le montant total que vous recevrez à la retraite"
+  },
+  "ADJUSTMENT": {
+    "MONTHLY_ADJUSTMENT": "Ajustement mensuel",
+    "ON_TRACK": "Génial, vous êtes sur la bonne voie pour atteindre votre objectif d'épargne pour la retraite",
+    "OFF_TRACK": "Ajustez votre contribution mensuelle à ${{amount}} pour atteindre votre objectif de retraite.",
+    "MONTHLY_ADJUSTMENT_NEEDED": "Ajustement mensuel nécessaire"
+  },
+  "BUTTONS": {
+  "SAVE": "Enregistrer",
+  "EDIT": "Modifier",
+  "SAVE_UPDATE": "Enregistrer la mise à jour"
+},
+"SEARCH": {
+  "ENTER_GOAL_ID": "Entrez l'identifiant de l'objectif",
+  "SEARCH_BUTTON": "Rechercher"
+},
+"CREATED_GOAL": {
+  "CONGRATULATIONS": "Félicitations !",
+  "REFERENCE_ID": "Votre identifiant de référence : ",
+  "REFERENCE_ID_GENERATED": "Votre identifiant de référence a été généré !",
+  "COPY_AND_SAVE": "Veuillez le copier et le sauvegarder pour vos dossiers.",
+  "EMAIL_PROMPT": "Si vous souhaitez recevoir cet identifiant par email, saisissez votre adresse ci-dessous et cliquez sur Continuer.",
+  "EMAIL_PLACEHOLDER": "Entrez votre adresse email",
+  "INVALID_EMAIL": "Veuillez entrer une adresse email valide.",
+  "EMAIL_SENT": "Email envoyé avec succès",
+  "EMAIL_FAILED": "Échec de l'envoi de l'email, veuillez réessayer plus tard",
+  "NO_THANKS": "Non merci",
+  "SENDING": "Envoi en cours...",
+  "CONTINUE": "Continuer"
+},
+"DASHBOARD": {
+    "ALL_RIGHTS_RESERVED": "Tous droits réservés"
+  }
+
+}

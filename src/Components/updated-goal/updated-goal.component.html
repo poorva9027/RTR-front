@@ -1,0 +1,19 @@
+<div *ngIf="Updated" class="fixed inset-0 z-50 flex items-center justify-center mask-bg bg-opacity-50 overflow-hidden">
+    <div class="animate-fade-in-scale h-fit w-100 rounded-xl bg-white p-6 flex flex-col items-center justify-start gap-4">
+        <dotlottie-player
+        src="https://lottie.host/5dc1b8b5-8850-4709-9485-e6fccd5ef2b4/Xzu5ePxuZk.lottie"
+        background="transparent"
+        speed="1"
+        class="h-30 w-30"
+        autoplay
+      ></dotlottie-player>
+        <div class="flex flex-col gap-4 w-full">
+            <div class="text-center flex flex-col gap-2">
+                <p class="text-xl font-medium text-zinc-800">Your plan is updated successfully</p>
+
+            </div>
+            <app-pop-btn [value]="update" class="w-full" (click)="closeUpdate()"></app-pop-btn>
+
+        </div>
+    </div>
+</div>

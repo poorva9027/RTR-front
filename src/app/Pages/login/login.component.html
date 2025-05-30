@@ -1,0 +1,342 @@
+<div
+  class="min-h-screen w-full flex justify-center items-center bg-gray-50 px-4 py-8 max-md:items-start"
+>
+  <div
+    class="flex flex-wrap justify-center items-center gap-8 w-full max-w-6xl"
+  >
+    <!-- Left Side: Welcome Section -->
+    <div class="rounded-xl p-6 w-full md:w-125 flex flex-col items-center">
+      <div class="flex items-center gap-2 justify-center">
+        <img src="images/logo.svg" class="h-24 max-md:h-20" />
+        <div class="w-fit">
+          <p
+            class="text-4xl text-center md:text-4xl font-semibold text-zinc-800"
+          >
+            Welcome to
+          </p>
+          <p
+            class="text-primary text-4xl text-center md:text-4xl font-semibold"
+          >
+            Save2Settle
+          </p>
+        </div>
+      </div>
+      <p class="text-center text-sm md:text-base max-w-xs md:max-w-md mt-2">
+        Easily plan, track, and adjust your retirement goals with our simple and
+        powerful tool.
+      </p>
+      <img
+        class="h-65 md:h-75 w-auto mt-4 max-md:hidden"
+        src="images/banner.svg"
+        alt="Banner"
+      />
+    </div>
+
+    <!-- Sign Up Section -->
+    <ng-container *ngIf="SignUp">
+      <div
+        class="p-8 w-full md:w-95 h-auto bg-white shadow-xl gap-4 rounded-2xl flex flex-col items-start justify-between animate-fade-in-scale"
+      >
+        <p class="text-3xl text-primary font-semibold">Sign Up</p>
+        <form
+          [formGroup]="signUpForm"
+          (ngSubmit)="onSignUp()"
+          class="form w-full"
+        >
+          <!-- Full Name -->
+          <div class="w-full">
+            <input
+              type="text"
+              formControlName="fullName"
+              placeholder="Full Name"
+              class="w-full h-12 mb-3 border border-zinc-200 outline-none p-2 rounded-lg placeholder:text-zinc-600"
+              required
+            />
+            <div
+              *ngIf="
+                signUpForm.get('fullName')?.invalid &&
+                (signUpForm.get('fullName')?.dirty ||
+                  signUpForm.get('fullName')?.touched)
+              "
+              class="error"
+            >
+              <small class="error w-full text-red-500">{{
+                getErrorMessage2("fullName")
+              }}</small>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="w-full">
+            <input
+              type="email"
+              formControlName="username"
+              placeholder="Email"
+              class="w-full h-12 mb-3 border border-zinc-200 outline-none p-2 rounded-lg placeholder:text-zinc-600"
+              required
+            />
+            <div
+              *ngIf="
+                signUpForm.get('username')?.invalid &&
+                (signUpForm.get('username')?.dirty ||
+                  signUpForm.get('username')?.touched)
+              "
+              class="error"
+            >
+              <small class="error w-full text-red-500">{{
+                getErrorMessage2("username")
+              }}</small>
+            </div>
+          </div>
+
+          <!-- Password with eye toggle -->
+          <div class="w-full relative">
+            <input
+              [type]="showSignUpPassword ? 'text' : 'password'"
+              formControlName="password"
+              placeholder="Password"
+              class="w-full h-12 mb-3 border border-zinc-200 outline-none p-2 rounded-lg placeholder:text-zinc-600"
+              required
+            />
+            <span
+              class="absolute right-3 top-3 cursor-pointer"
+              (click)="toggleSignUpPasswordVisibility()"
+            >
+              <img
+                [src]="
+                  showSignUpPassword
+                    ? 'images/eye-solid.svg'
+                    : 'images/eye-slash-solid.svg'
+                "
+                alt="Toggle password visibility"
+                class="h-5 w-5 text-gray-500"
+              />
+            </span>
+            <div
+              *ngIf="
+                signUpForm.get('password')?.invalid &&
+                (signUpForm.get('password')?.dirty ||
+                  signUpForm.get('password')?.touched)
+              "
+              class="error"
+            >
+              <small class="error w-full text-red-500">{{
+                getErrorMessage2("password")
+              }}</small>
+            </div>
+          </div>
+
+          <!-- Confirm Password with eye toggle -->
+          <div class="w-full relative">
+            <input
+              [type]="showSignUpConfirmPassword ? 'text' : 'password'"
+              formControlName="confirmPassword"
+              placeholder="Confirm Password"
+              class="w-full h-12 mb-3 border border-zinc-200 outline-none p-2 rounded-lg placeholder:text-zinc-600"
+              required
+            />
+            <span
+              class="absolute right-3 top-3 cursor-pointer"
+              (click)="toggleSignUpConfirmPasswordVisibility()"
+            >
+              <img
+                [src]="
+                  showSignUpConfirmPassword
+                    ? 'images/eye-solid.svg'
+                    : 'images/eye-slash-solid.svg'
+                "
+                alt="Toggle password visibility"
+                class="h-5 w-5 text-gray-500"
+              />
+            </span>
+            <div
+              *ngIf="
+                signUpForm.get('confirmPassword')?.hasError('required') &&
+                (signUpForm.get('confirmPassword')?.dirty ||
+                  signUpForm.get('confirmPassword')?.touched)
+              "
+              class="error"
+            >
+              <small class="error w-full text-red-500">{{
+                getErrorMessage2("confirmPassword")
+              }}</small>
+            </div>
+            <div
+              *ngIf="
+                signUpForm.hasError('passwordMismatch') &&
+                (signUpForm.get('confirmPassword')?.dirty ||
+                  signUpForm.get('confirmPassword')?.touched)
+              "
+              class="error"
+            >
+              <small class="error w-full text-red-500"
+                >Passwords do not match</small
+              >
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="w-full">
+            <button
+              type="submit"
+              class="w-full h-11 bg-primary text-white rounded-lg mb-3 cursor-pointer"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
+
+        <div class="w-full text-center cursor-pointer">
+          Have an account?
+          <span
+            (click)="signup()"
+            class="text-primary font-semibold cursor-pointer"
+            >Sign In</span
+          >
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Sign In Section -->
+    <ng-container *ngIf="SignIn">
+      <div
+        class="p-8 w-full md:w-95 h-auto bg-white shadow-xl gap-4 rounded-2xl flex flex-col items-start justify-between animate-fade-in-scale"
+      >
+        <p class="text-3xl text-primary font-semibold">
+          Sign In
+        </p>
+        <form
+          [formGroup]="signInForm"
+          (ngSubmit)="onSignIn()"
+          class="form w-full"
+        >
+          <!-- Email -->
+          <div class="w-full mb-4">
+            <input
+              type="email"
+              id="user"
+              formControlName="username"
+              placeholder="Email"
+              class="w-full h-12 border border-zinc-200 outline-none p-2 rounded-lg placeholder:text-zinc-600"
+              required
+            />
+            <div
+              *ngIf="
+                signInForm.get('username')?.invalid &&
+                (signInForm.get('username')?.dirty ||
+                  signInForm.get('username')?.touched ||
+                  submitted)
+              "
+              class="error"
+            >
+              <small class="error w-full text-red-500">{{
+                getErrorMessage("username")
+              }}</small>
+            </div>
+          </div>
+
+          <!-- Password with eye toggle -->
+          <div class="w-full mb-4 relative">
+            <input
+              [type]="showSignInPassword ? 'text' : 'password'"
+              id="password"
+              formControlName="password"
+              placeholder="Password"
+              class="w-full h-12 border border-zinc-200 outline-none p-2 rounded-lg placeholder:text-zinc-600"
+              required
+            />
+            <span
+              class="absolute right-3 top-3 cursor-pointer"
+              (click)="toggleSignInPasswordVisibility()"
+            >
+              <img
+                [src]="
+                  showSignInPassword
+                    ? 'images/eye-solid.svg'
+                    : 'images/eye-slash-solid.svg'
+                "
+                alt="Toggle password visibility"
+                class="h-5 w-5 text-gray-500 text-2xl"
+              />
+            </span>
+            <div
+              *ngIf="
+                signInForm.get('password')?.invalid &&
+                (signInForm.get('password')?.dirty ||
+                  signInForm.get('password')?.touched ||
+                  submitted)
+              "
+              class="error"
+            >
+              <small class="error w-full text-red-500">{{
+                getErrorMessage("password")
+              }}</small>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full h-12 bg-primary text-white rounded-lg mb-3 cursor-pointer"
+          >
+            Sign In
+          </button>
+        </form>
+
+        <div class="w-full text-center cursor-pointer">
+          Don't have an account?
+          <span
+            (click)="signin()"
+            class="text-primary font-semibold cursor-pointer"
+            >Sign Up</span
+          >
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<div
+  *ngIf="Invalid"
+  class="animate-fade-in-scale absolute w-full top-10 z-50 flex items-center justify-center bg-opacity-50 overflow-hidden"
+>
+  <div
+    class="flex justify-between bg-red-500 w-100 h-15 items-center rounded-2xl gap-2 p-4"
+  >
+    <div class="flex justify-center items-center gap-2">
+      <img src="images/circle-exclamation-solid.svg" class="h-5" />
+      <p class="text-white">Invalid Credentials</p>
+    </div>
+    <img src="images/xmark-solid.svg" class="h-5" (click)="closeAlert()" />
+  </div>
+</div>
+
+<div
+  *ngIf="UserExist"
+  class="animate-fade-in-scale absolute w-full top-20 z-50 flex items-center justify-center bg-opacity-50 overflow-hidden"
+>
+  <div
+    class="flex justify-between bg-red-500 w-100 h-15 items-center rounded-2xl gap-2 p-4"
+  >
+    <div class="flex justify-center items-center gap-2">
+      <img src="images/circle-exclamation-solid.svg" class="h-5" />
+      <p class="text-white">User Already Exist</p>
+    </div>
+    <img src="images/xmark-solid.svg" class="h-5" (click)="closeAlert()" />
+  </div>
+</div>
+
+<div
+  *ngIf="Success"
+  class="animate-fade-in-scale absolute w-full top-20 z-50 flex items-center justify-center bg-opacity-50 overflow-hidden"
+>
+  <div
+    class="flex justify-between bg-green-600 w-100 h-15 items-center rounded-2xl gap-2 p-4"
+  >
+    <div class="flex justify-center items-center gap-2">
+      <img src="images/circle-check-solid.svg" class="h-5" />
+      <p class="text-white">Registration Successfull</p>
+    </div>
+    <img src="images/xmark-solid.svg" class="h-5" (click)="closeAlert()" />
+  </div>
+</div>

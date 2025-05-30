@@ -1,0 +1,62 @@
+{
+    "FORM": {
+      "CURRENT_AGE": "¿Cuál es tu edad actual?",
+      "CURRENT_SAVE": "¿Cuál es tu ahorro actual?",
+      "MONTHL_SAVE": "¿Cuál es tu contribución mensual?",
+      "TARGET_AGE": "¿Cuál es tu edad de jubilación objetivo?",
+      "TARGET_SAVE": "¿Cuál es tu ahorro de jubilación objetivo?"
+    },
+    "VALIDATION": {
+      "REQUIRED": "Este campo es obligatorio",
+      "AGE_MIN": "La edad no debe ser menor de 18 años",
+      "AGE_MAX": "La edad no debe ser mayor de 60 años",
+      "SAVINGS_MIN": "Los ahorros no deben ser menores de 0",
+      "SAVINGS_MAX": "Los ahorros no deben exceder los $100,000",
+      "MONTHLY_MIN": "La contribución mensual no debe ser menor de 0",
+      "MONTHLY_MAX": "La contribución mensual no debe exceder los $10,000",
+      "TARGET_MIN": "Los ahorros objetivo no deben ser menores de 0",
+      "TARGET_MAX": "Los ahorros objetivo no deben exceder los $1,000,000",
+      "TARGET_AGE_GREATER": "La edad objetivo debe ser mayor que la edad actual",
+      "SUBMIT_COOLDOWN": "Por favor espera un momento antes de volver a enviar."
+    },
+   
+    "SIGN_OUT": "Cerrar sesión",
+    "MONTHLY_CONTRIB": {
+      "CURRENT_SAVINGS": "Tus ahorros mensuales actuales",
+      "CURRENT_SAVINGS_TOOLTIP": "El total de tus ahorros mensuales actuales",
+      "RECOMMENDED_SAVINGS": "Ahorros mensuales recomendados",
+      "RECOMMENDED_SAVINGS_TOOLTIP": "El monto total recomendado para contribuir por mes",
+      "TOTAL_SAVINGS": "Ahorros totales de jubilación",
+      "TOTAL_SAVINGS_TOOLTIP": "El monto total que recibirás al momento de tu jubilación"
+    },
+    "ADJUSTMENT": {
+      "MONTHLY_ADJUSTMENT": "Ajuste mensual",
+      "ON_TRACK": "¡Genial, estás en camino de cumplir tu meta de ahorros para la jubilación!",
+      "OFF_TRACK": "Ajusta tu contribución mensual a ${{amount}} para cumplir tu meta de jubilación.",
+      "MONTHLY_ADJUSTMENT_NEEDED": "Ajuste mensual necesario"
+    },
+    "BUTTONS": {
+  "SAVE": "Guardar",
+  "EDIT": "Editar",
+  "SAVE_UPDATE": "Guardar actualización"
+},
+"CREATED_GOAL": {
+  "CONGRATULATIONS": "¡Felicidades!",
+  "REFERENCE_ID": "Tu ID de referencia: ",
+  "REFERENCE_ID_GENERATED": "¡Tu ID de referencia ha sido generado!",
+  "COPY_AND_SAVE": "Por favor, cópialo y guárdalo para tus registros.",
+  "EMAIL_PROMPT": "Si deseas recibir este ID por correo electrónico, ingresa tu dirección de correo abajo y haz clic en Continuar.",
+  "EMAIL_PLACEHOLDER": "Ingresa tu dirección de correo electrónico",
+  "INVALID_EMAIL": "Por favor, introduce una dirección de correo válida.",
+  "EMAIL_SENT": "Correo enviado con éxito",
+  "EMAIL_FAILED": "No se pudo enviar el correo, por favor inténtalo más tarde",
+  "NO_THANKS": "No, gracias",
+  "SENDING": "Enviando...",
+  "CONTINUE": "Continuar"
+},
+"DASHBOARD": {
+    "ALL_RIGHTS_RESERVED": "Todos los derechos reservados"
+  }
+
+  }
+  

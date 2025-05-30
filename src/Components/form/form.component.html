@@ -1,0 +1,282 @@
+<form [formGroup]="retirementForm" class="h-full">
+  <div
+    class="flex justify-between flex-col w-full h-full gap-4 rounded-2xl divide-red-500"
+  >
+    <!-- Current Age -->
+    <div class="border-solid border-zinc-200 border rounded-2xl p-4">
+      <div class="flex items-center justify-between">
+        <div class="w-full">
+          <p class="text-base max-md:text-sm">
+            {{ 'FORM.CURRENT_AGE' | translate }}<span class="text-red-500">*</span>
+          </p>
+          <p
+            *ngIf="
+              hasError('currentAge', 'required') ||
+              hasError('currentAge', 'min') ||
+              hasError('currentAge', 'max')
+            "
+            class="text-sm text-red-500 max-md:text-sm"
+          >
+            {{ getErrorMessage("currentAge") }}
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="flex items-center h-11 w-31 rounded-lg gap-2 border-zinc-200 border pl-3.5 pr-3.5 pt-2.5 pb-2.5 justify-center"
+            [ngClass]="{
+              'border-red-500':
+                hasError('currentAge', 'required') ||
+                hasError('currentAge', 'min') ||
+                hasError('currentAge', 'max')
+            }"
+          >
+            <input
+              type="number"
+              formControlName="currentAge"
+              min="18"
+              max="60"
+              class="outline-none w-full"
+              id="currentAge"
+              (input)="updateSlider('currentAge', $event)"
+            />
+            <p class="text-zinc-500">Yrs</p>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <input
+          type="range"
+          class="w-full slider"
+          min="18"
+          max="60"
+          value="22"
+          id="currentAgeSlider"
+          (input)="updateInput('currentAge', $event)"
+        />
+      </div>
+    </div>
+
+    <!-- Current Savings -->
+    <div class="border-solid border-zinc-200 border rounded-2xl p-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-base max-md:text-sm">
+            {{ 'FORM.CURRENT_SAVE' | translate }}<span class="text-red-500">*</span>
+          </p>
+          <p
+            *ngIf="
+              hasError('currentSave', 'required') ||
+              hasError('currentSave', 'min') ||
+              hasError('currentSave', 'max')
+            "
+            class="text-sm text-red-500 max-md:text-sm"
+          >
+            {{ getErrorMessage("currentSave") }}
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="flex items-center h-11 w-31 rounded-lg gap-2 border-zinc-200 border pl-3.5 pr-3.5 pt-2.5 pb-2.5 justify-center"
+            [ngClass]="{
+              'border-red-500':
+                hasError('currentSave', 'required') ||
+                hasError('currentSave', 'min') ||
+                hasError('currentSave', 'max')
+            }"
+          >
+            <input
+              type="number"
+              formControlName="currentSave"
+              min="0"
+              max="100000"
+              class="outline-none w-full"
+              id="currentSave"
+              (input)="updateSlider('currentSave', $event)"
+            />
+            <p class="text-zinc-500">$</p>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <input
+          type="range"
+          class="w-full slider"
+          min="0"
+          max="100000"
+          value="0"
+          id="currentSaveSlider"
+          (input)="updateInput('currentSave', $event)"
+        />
+      </div>
+    </div>
+
+    <div class="border-solid border-zinc-200 border rounded-2xl p-4">
+      <!-- Monthly Contribution -->
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-base max-md:text-sm">
+            {{ 'FORM.MONTHL_SAVE' | translate }}<span class="text-red-500">*</span>
+          </p>
+          <p
+            *ngIf="
+              hasError('monthlSave', 'required') ||
+              hasError('monthlSave', 'min') ||
+              hasError('monthlSave', 'max')
+            "
+            class="text-sm text-red-500 max-md:text-sm"
+          >
+            {{ getErrorMessage("monthlSave") }}
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="flex items-center h-11 w-31 rounded-lg gap-2 border-zinc-200 border pl-3.5 pr-3.5 pt-2.5 pb-2.5 justify-center"
+            [ngClass]="{
+              'border-red-500':
+                hasError('monthlSave', 'required') ||
+                hasError('monthlSave', 'min') ||
+                hasError('monthlSave', 'max')
+            }"
+          >
+            <input
+              type="number"
+              formControlName="monthlSave"
+              min="0"
+              max="10000"
+              class="outline-none w-full"
+              id="monthlSave"
+              (input)="updateSlider('monthlSave', $event)"
+            />
+            <p class="text-zinc-500">$</p>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <input
+          type="range"
+          class="w-full slider"
+          min="0"
+          max="10000"
+          value="0"
+          id="monthlSaveSlider"
+          (input)="updateInput('monthlSave', $event)"
+        />
+      </div>
+    </div>
+    <div class="border-solid border-zinc-200 border rounded-2xl p-4">
+      <!-- Target Retirement Age -->
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-base max-md:text-sm">
+            {{ 'FORM.TARGET_AGE' | translate }}<span class="text-red-500">*</span>
+          </p>
+          <p
+            *ngIf="
+              hasError('targetAge', 'required') ||
+              hasError('targetAge', 'min') ||
+              hasError('targetAge', 'max') ||
+              hasError('targetAge', 'targetAgeLessThanCurrentAge')
+            "
+            class="text-sm text-red-500 max-md:text-sm"
+          >
+            {{ getErrorMessage("targetAge") }}
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="flex items-center h-11 w-31 rounded-lg gap-2 border-zinc-200 border pl-3.5 pr-3.5 pt-2.5 pb-2.5 justify-center"
+            [ngClass]="{
+              'border-red-500':
+                hasError('targetAge', 'required') ||
+                hasError('targetAge', 'min') ||
+                hasError('targetAge', 'max') ||
+                hasError('targetAge', 'targetAgeLessThanCurrentAge')
+            }"
+          >
+            <input
+              type="number"
+              formControlName="targetAge"
+              min="18"
+              max="60"
+              class="outline-none w-full"
+              id="targetAge"
+              (input)="updateSlider('targetAge', $event)"
+            />
+            <p class="text-zinc-500">Yrs</p>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <input
+          type="range"
+          class="w-full slider"
+          min="18"
+          max="60"
+          value="22"
+          id="targetAgeSlider"
+          (input)="updateInput('targetAge', $event)"
+        />
+      </div>
+    </div>
+    <div class="border-solid border-zinc-200 border rounded-2xl p-4">
+      <!-- Target Retirement Savings -->
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-base max-md:text-sm">
+            {{ 'FORM.TARGET_SAVE' | translate }}<span class="text-red-500">*</span>
+          </p>
+          <p
+            *ngIf="
+              hasError('targetSave', 'required') ||
+              hasError('targetSave', 'min') ||
+              hasError('targetSave', 'max')
+            "
+            class="text-sm text-red-500 max-md:text-sm"
+          >
+            {{ getErrorMessage("targetSave") }}
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="flex items-center h-11 w-31 rounded-lg gap-2 border-zinc-200 border pl-3.5 pr-3.5 pt-2.5 pb-2.5 justify-center"
+            [ngClass]="{
+              'border-red-500':
+                hasError('targetSave', 'required') ||
+                hasError('targetSave', 'min') ||
+                hasError('targetSave', 'max')
+            }"
+          >
+            <input
+              type="number"
+              formControlName="targetSave"
+              min="0"
+              max="1000000"
+              class="outline-none w-full"
+              id="targetSave"
+              (input)="updateSlider('targetSave', $event)"
+            />
+            <p class="text-zinc-500">$</p>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <input
+          type="range"
+          class="w-full slider"
+          min="0"
+          max="1000000"
+          value="0"
+          id="targetSaveSlider"
+          (input)="updateInput('targetSave', $event)"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- <button (click)="submitForm()" [disabled]="!retirementForm.valid || isSubmitting">
+        Save Goal
+      </button>
+      
+      <div *ngIf="submitError" class="error-message">
+        {{ submitError }}
+      </div> -->
+</form>

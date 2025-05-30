@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="h-full w-full flex flex-col items-center p-10 gap-10 max-lg:p-3 relative overflow-hidden">
+  <p class="text-4xl text-primary font-semibold">How do I Plan My Retire?</p>
+  <div class="">
+    <div class="tabs bg-shadow">
+      <div
+        class="tab active"
+        *ngFor="
+          let tab of ['25x Rule', '4% Rule', 'What age I can retire?'];
+          let i = index
+        "
+        [class.active]="i === activeIndex"
+        (click)="switchTab(i)"
+        #tabElement
+      >
+        {{ tab }}
+      </div>
+      <div class="tab-indicator"></div>
+    </div>
+
+    <div class="tab-content" *ngIf="activeIndex === 0">
+      <h3>25x</h3>
+      <p>This is the content for Tab 1.</p>
+    </div>
+
+    <div class="tab-content" *ngIf="activeIndex === 1">
+      <h3>4%</h3>
+      <p>This is the content for Tab 2.</p>
+    </div>
+    
+    <div class="tab-content" *ngIf="activeIndex === 2">
+      <h3>Tab 3 Content</h3>
+      <p>This is the content for Tab 3.</p>
+    </div>
+  </div>
+
+  <img class="absolute bottom-0 w-full object-cover" src="images/wave.svg" />
+</div>

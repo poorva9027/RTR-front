@@ -1,0 +1,66 @@
+<div class="flex flex-col h-full">
+  <div class="flex w-full gap-5 max-md:flex max-md:flex-col max-md:justify-center max-md:items-center max-md:gap-4">
+    <!-- Current Monthly Savings -->
+    <div class="flex flex-col w-full bg-current-save rounded-2xl p-4 gap-4 tooltip-container">
+      <div class="flex gap-2 items-center justify-between">
+        <p class="text-current-save font-semibold text-base max-md:text-sm">
+          {{ 'MONTHLY_CONTRIB.CURRENT_SAVINGS' | translate }}
+        </p>
+        <span class="tooltip-text">
+          {{ 'MONTHLY_CONTRIB.CURRENT_SAVINGS_TOOLTIP' | translate }}
+        </span>
+        <img [src]="CurrentSvg" alt="logo" />
+      </div>
+      <p class="text-2xl font-bold text-current-save">
+        <span>$</span>{{ animatedActualValue | number : "1.0-0" }}
+      </p>
+    </div>
+
+    <!-- Recommended Monthly Savings -->
+    <div *ngIf="animatedRecommendedValue >= 0" class="flex flex-col bg-sky-100 w-full rounded-2xl p-4 gap-4 tooltip-container">
+      <div class="flex gap-2 items-center justify-between">
+        <p class="text-recomm-save  font-semibold text-base max-md:text-sm">
+          {{ 'MONTHLY_CONTRIB.RECOMMENDED_SAVINGS' | translate }}
+        </p>
+        <span class="tooltip-text">
+          {{ 'MONTHLY_CONTRIB.RECOMMENDED_SAVINGS_TOOLTIP' | translate }}
+        </span>
+        <img [src]="RecommSvg" alt="logo" />
+      </div>
+      <p
+        [ngClass]="animatedRecommendedValue < 0 ? 'text-red-600 text-2xl font-bold':'text-recomm-save text-2xl font-bold'" 
+        class=""
+      >
+        <span>$</span>{{ animatedRecommendedValue | number : "1.0-0" }}
+      </p>
+    </div>
+
+    <div *ngIf="animatedRecommendedValue < 0" class="flex flex-col bg-sky-100 w-full rounded-2xl p-4 gap-4 tooltip-container">
+      <div class="flex gap-2 items-center justify-between">
+        <p class="text-recomm-save font-semibold text-lg max-md:text-sm">
+          {{ 'MONTHLY_CONTRIB.SAVINGS_TARGET_MET' | translate }}
+        </p>
+        <span class="tooltip-text">
+          {{ 'MONTHLY_CONTRIB.RECOMMENDED_SAVINGS_TOOLTIP' | translate }}
+        </span>
+        <img [src]="RecommSvg" alt="logo" />
+      </div>
+    </div>
+
+    <!-- Total Retirement Savings -->
+    <div class="flex flex-col bg-retire-save w-full rounded-2xl p-4 gap-4 tooltip-container">
+      <div class="flex gap-2 items-center justify-between">
+        <p class="text-retire-save font-semibold text-base max-md:text-sm">
+          {{ 'MONTHLY_CONTRIB.TOTAL_SAVINGS' | translate }}
+        </p>
+        <span class="tooltip-text">
+          {{ 'MONTHLY_CONTRIB.TOTAL_SAVINGS_TOOLTIP' | translate }}
+        </span>
+        <img [src]="TargetSvg" alt="logo" />
+      </div>
+      <p class="text-2xl font-bold text-retire-save">
+        <span>$</span>{{ animatedTotalSavings | number : "1.0-0" }}
+      </p>
+    </div>
+  </div>
+</div>

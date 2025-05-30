@@ -1,0 +1,69 @@
+{
+  "FORM": {
+    "CURRENT_AGE": "What is your current age",
+    "CURRENT_SAVE": "What is your current savings",
+    "MONTHL_SAVE": "What is your monthly contribution",
+    "TARGET_AGE": "What is your target retirement age",
+    "TARGET_SAVE": "What is your target retirement savings"
+  },
+  "VALIDATION": {
+    "REQUIRED": "This is a required field",
+    "AGE_MIN": "Age should not be less than 18",
+    "AGE_MAX": "Age should not be more than 60",
+    "SAVINGS_MIN": "Savings should not be less than 0",
+    "SAVINGS_MAX": "Savings should not exceed $100,000",
+    "MONTHLY_MIN": "Monthly contribution should not be less than 0",
+    "MONTHLY_MAX": "Monthly contribution should not exceed $10,000",
+    "TARGET_MIN": "Target savings should not be less than 0",
+    "TARGET_MAX": "Target savings should not exceed $1,000,000",
+    "TARGET_AGE_GREATER": "Target age must be greater than current age",
+    "SUBMIT_COOLDOWN": "Please wait a moment before submitting again."
+  },
+  
+  "SIGN_OUT": "Sign out",
+  "MONTHLY_CONTRIB": {
+    "CURRENT_SAVINGS": "Your Current Monthly Savings",
+    "CURRENT_SAVINGS_TOOLTIP": "Your total current monthly saving",
+    "RECOMMENDED_SAVINGS": "Recommended Monthly Savings",
+    "SAVINGS_TARGET_MET": "No Extra Savings Needed",
+    "RECOMMENDED_SAVINGS_TOOLTIP": "Total amount that is recommended to contribute per month",
+    "TOTAL_SAVINGS": "Total Retirement Savings",
+    "TOTAL_SAVINGS_TOOLTIP": "Total amount that you will get at retirement"
+  },
+  "ADJUSTMENT": {
+    "MONTHLY_ADJUSTMENT": "Monthly Adjustment",
+    "ON_TRACK": "Great, You're on track to meet your retirement savings",
+    "OFF_TRACK": "Adjust your monthly contribution to ${{amount}} to meet your retirement goal.",
+    "MONTHLY_ADJUSTMENT_NEEDED": "Monthly Adjustment Needed"
+  },
+  "BUTTONS": {
+  "SAVE": "Save Plan",
+  "EDIT": "Edit",
+  "SAVE_UPDATE": "Save Update"
+},
+"SEARCH": {
+  "ENTER_GOAL_ID": "Enter Goal ID",
+  "SEARCH_BUTTON": "Search",
+  "GOAL_ID_REQUIRED" : "Goal ID is required"
+},
+"CREATED_GOAL": {
+  "CONGRATULATIONS": "Congratulations!",
+  "REFERENCE_ID": "Your Reference ID: ",
+  "REFERENCE_ID_GENERATED": "Your reference ID has been generated!",
+  "COPY_AND_SAVE": "Please copy and save it for your records.",
+  "EMAIL_PROMPT": "If you'd like to receive this reference ID by email, enter your email address below and click Continue.",
+  "EMAIL_PLACEHOLDER": "Enter your email address",
+  "INVALID_EMAIL": "Please enter a valid Email address.",
+  "EMAIL_SENT": "Email sent successfully",
+  "EMAIL_FAILED": "Failed to send the mail, Please try again later",
+  "NO_THANKS": "No, Thanks",
+  "SENDING": "Sending...",
+  "CONTINUE": "Continue"
+},
+  "DASHBOARD": {
+    "ALL_RIGHTS_RESERVED": "All Rights Reserved"
+  }
+
+
+  
+}

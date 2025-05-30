@@ -1,0 +1,22 @@
+<div class="flex items-center h-13 justify-between gap-4">
+  <div
+    class="flex items-center border-zinc-200 border pl-4 pr-4 gap-4 pt-2 pb-2 w-full h-full rounded-xl"
+  >
+    <img src="images/search.svg" />
+    <input
+      type="text"
+      [(ngModel)]="enteredGoalId"
+      #goalIdInput="ngModel"
+      required
+      class="outline-none w-full max-md:text-sm font-medium uppercase text-gray-500 placeholder:font-normal"
+      [placeholder]="'SEARCH.ENTER_GOAL_ID' | translate"
+    />
+  </div>
+  <button
+    *ngIf="enteredGoalId"
+    (click)="onSearch()"
+    class="animate-fade-in-scale pt-2 pb-2 w-32 h-full text-base bg-primary rounded-lg text-white font-medium max-md:text-sm cursor-pointer"
+  >
+    {{ "SEARCH.SEARCH_BUTTON" | translate }}
+  </button>
+</div>

@@ -1,0 +1,229 @@
+<!-- Navbar Wrapper -->
+<div class="p-3 flex justify-start bg-white shadow">
+  <div class="p-1 flex w-full items-center justify-between">
+    <!-- Logo -->
+    <div class="flex justify-center items-center gap-2">
+      <img class="h-14 max-md:h-8" [src]="logo" />
+      <img class="h-5 max-md:h-4" [src]="logoWord" alt="Bold fonts" />
+
+      <!-- Desktop Nav -->
+      <div class="max-lg:hidden flex ml-6">
+        <nav class="pl-4 space-x-4 gap-8">
+          <a
+            routerLink="/dashboard"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="transition-all duration-200"
+          >
+            Dashboard
+          </a>
+          <a
+            routerLink="/retirement-rule"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: false }"
+            class="transition-all duration-200"
+          >
+            Retirement Plans
+          </a>
+          <a
+            routerLink="/about-us"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: false }"
+            class="transition-all duration-200"
+            class="transition-all duration-200"
+            >About us</a
+          >
+        </nav>
+
+        <!-- Language Select -->
+      </div>
+    </div>
+    <!-- Desktop Profile -->
+    <div class="hidden md:flex justify-center items-center gap-4">
+      <div class="relative w-28 hidden md:block">
+        <select
+          class="block px-4 py-2 text-base text-gray-700 bg-white rounded-lg outline-none appearance-none transition duration-200"
+          [(ngModel)]="selectedLang"
+          (change)="switchLang(selectedLang)"
+        >
+          <option
+            class="bg-white rounded-lg"
+            *ngFor="let lang of supportedLangs"
+            [value]="lang.code"
+          >
+            {{ lang.label }}
+          </option>
+        </select>
+        <div
+          class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="text-base text-zinc-700 font-semibold flex items-center gap-2 cursor-pointer"
+        (click)="profile()"
+      >
+        <img src="images/profile.jpg" class="h-10 w-10 rounded-full" />
+        <p class="font-medium">
+          <span class="font-semibold text-primary">Hi, </span>{{ fullName }}
+        </p>
+        <img
+          [ngClass]="dropDown ? 'rotate-180' : 'rotate-0'"
+          class="h-4"
+          src="images/angle-down-solid.svg"
+        />
+      </div>
+      <div
+        *ngIf="dropDown"
+        class="animate-fade-in-scale absolute right-6 top-18 bg-white z-10 shadow p-6 rounded-lg flex flex-col items-start gap-6 h-fit"
+      >
+        <button
+          (click)="logout()"
+          class="flex items-center justify-center gap-3 cursor-pointer"
+        >
+          <img class="h-4" [src]="Dashboard" />
+          <p class="text-sm text-primary font-medium">Dashboard</p>
+        </button>
+
+        <button
+          (click)="logout()"
+          class="flex items-center justify-center gap-3 cursor-pointer"
+        >
+          <img class="h-4" [src]="LogoutSvg" />
+          <p class="text-sm text-primary font-medium">
+            {{ "SIGN_OUT" | translate }}
+          </p>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="md:hidden">
+      <button
+        (click)="mobileMenuOpen = !mobileMenuOpen"
+        aria-label="Toggle menu"
+      >
+        <svg
+          *ngIf="!mobileMenuOpen"
+          class="w-6 h-6 text-gray-700"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+        <svg
+          *ngIf="mobileMenuOpen"
+          class="w-6 h-6 text-gray-700"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Nav Menu -->
+<div
+  *ngIf="mobileMenuOpen"
+  class="animate-fade-in-scale rounded-lg absolute top-16 right-0 z-50 md:hidden h-fit w-2/3 max-w-xs px-4 py-6 bg-white shadow-lg space-y-5 transition-all duration-300 ease-in-out"
+>
+  <!-- Greeting -->
+  <p class="text-base text-primary font-semibold">
+    <span>Hi, </span>{{ fullName }}
+  </p>
+
+  <!-- Nav Links -->
+  <nav class="flex flex-col space-y-4 items-start">
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="mobileMenuOpen = false"
+      class="transition-all duration-200"
+    >
+      Dashboard
+    </a>
+    <a
+      routerLink="/retirement-rule"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: false }"
+      (click)="mobileMenuOpen = false"
+      class="transition-all duration-200"
+    >
+      Retirement Plans
+    </a>
+    <a
+      href="#About"
+      (click)="mobileMenuOpen = false"
+      class="transition-all duration-200"
+    >
+      About
+    </a>
+  </nav>
+
+  <!-- Language Select -->
+  <div class="relative">
+    <select
+      class="block w-full px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+      [(ngModel)]="selectedLang"
+      (change)="switchLang(selectedLang)"
+    >
+      <option *ngFor="let lang of supportedLangs" [value]="lang.code">
+        {{ lang.label }}
+      </option>
+    </select>
+    <div
+      class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400"
+    >
+      <svg
+        class="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M19 9l-7 7-7-7"
+        />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Logout -->
+  <button
+    (click)="logout(); mobileMenuOpen = false"
+    class="flex items-center gap-2 w-full text-primary font-medium"
+  >
+    <img class="h-4" src="images/logout.svg" />
+    <span>{{ "SIGN_OUT" | translate }}</span>
+  </button>
+</div>

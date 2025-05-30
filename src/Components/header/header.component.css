@@ -1,0 +1,42 @@
+nav {
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    width: 100%;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    color: #616161;
+    width: auto;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+a:after {
+    content: "";
+    position: absolute;
+    background-color: #2563eb;
+    height: 2.5px;
+    width: 0;
+    left: 0;
+    bottom: -8px;
+    transition: 0.3s;
+}
+
+a:hover {
+    font-weight: 500;
+    color: #2563eb;
+}
+
+a:hover:after {
+    width: 100%;
+}
+
+/* styles.css or styles.scss */
+.active-link {
+    font-weight: 500;
+    color: #2563eb;
+}

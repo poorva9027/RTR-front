@@ -1,0 +1,66 @@
+{
+  "FORM": {
+    "CURRENT_AGE": "您当前的年龄",
+    "CURRENT_SAVE": "您当前的储蓄",
+    "MONTHL_SAVE": "您的月度贡献",
+    "TARGET_AGE": "您的目标退休年龄",
+    "TARGET_SAVE": "您的目标退休储蓄"
+  },
+  "VALIDATION": {
+    "REQUIRED": "此字段为必填项",
+    "AGE_MIN": "年龄不能小于18岁",
+    "AGE_MAX": "年龄不能大于60岁",
+    "SAVINGS_MIN": "储蓄不能小于0",
+    "SAVINGS_MAX": "储蓄不能超过$100,000",
+    "MONTHLY_MIN": "月度贡献不能小于0",
+    "MONTHLY_MAX": "月度贡献不能超过$10,000",
+    "TARGET_MIN": "目标储蓄不能小于0",
+    "TARGET_MAX": "目标储蓄不能超过$1,000,000",
+    "TARGET_AGE_GREATER": "目标年龄必须大于当前年龄",
+    "SUBMIT_COOLDOWN": "请稍等片刻再提交。"
+  },
+  
+  "SIGN_OUT": "退出登录",
+  "MONTHLY_CONTRIB": {
+    "CURRENT_SAVINGS": "您的当前月度储蓄",
+    "CURRENT_SAVINGS_TOOLTIP": "您当前月度储蓄的总额",
+    "RECOMMENDED_SAVINGS": "建议月度储蓄",
+    "RECOMMENDED_SAVINGS_TOOLTIP": "建议每月存入的总金额",
+    "TOTAL_SAVINGS": "总退休储蓄",
+    "TOTAL_SAVINGS_TOOLTIP": "您退休时将获得的总金额"
+  },
+  "ADJUSTMENT": {
+    "MONTHLY_ADJUSTMENT": "月度调整",
+    "ON_TRACK": "很好，您正在按计划实现您的退休储蓄目标",
+    "OFF_TRACK": "将您的月度贡献调整为${{amount}}，以实现您的退休目标。",
+    "MONTHLY_ADJUSTMENT_NEEDED": "需要月度调整"
+  },
+  "BUTTONS": {
+  "SAVE": "保存",
+  "EDIT": "编辑",
+  "SAVE_UPDATE": "保存更新"
+},
+"SEARCH": {
+  "ENTER_GOAL_ID": "输入目标ID",
+  "SEARCH_BUTTON": "搜索"
+},
+"CREATED_GOAL": {
+  "CONGRATULATIONS": "恭喜！",
+  "REFERENCE_ID": "您的参考编号：",
+  "REFERENCE_ID_GENERATED": "您的参考编号已生成！",
+  "COPY_AND_SAVE": "请复制并保存以备记录。",
+  "EMAIL_PROMPT": "如果您希望通过电子邮件接收此参考编号，请在下方输入您的邮箱地址并点击继续。",
+  "EMAIL_PLACEHOLDER": "请输入您的电子邮件地址",
+  "INVALID_EMAIL": "请输入有效的电子邮件地址。",
+  "EMAIL_SENT": "邮件发送成功",
+  "EMAIL_FAILED": "邮件发送失败，请稍后再试",
+  "NO_THANKS": "不用，谢谢",
+  "SENDING": "发送中...",
+  "CONTINUE": "继续"
+},
+"DASHBOARD": {
+    "ALL_RIGHTS_RESERVED": "版权所有"
+  }
+
+
+}
